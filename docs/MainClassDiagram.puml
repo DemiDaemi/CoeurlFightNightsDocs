@@ -1,14 +1,14 @@
 @startuml
 skinparam linetype polyline
 
-class DiscordBot <<Python App>> {
+Entity DiscordBot <<Python App>> {
   +registerPlayer()
   +matchmake()
   +reportMatchResult()
   +linkFFXIVCharacter()
 }
 
-class MatchmakingSystem <<Python App>> {
+Entity MatchmakingSystem <<Python App>> {
   +createMatch()
   +calculateRating()
   +assignRating()
