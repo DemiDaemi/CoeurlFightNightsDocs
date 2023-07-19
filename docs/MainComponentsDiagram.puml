@@ -1,0 +1,52 @@
+@startuml
+skinparam linetype ortho
+
+package "Discord Bot" {
+  [Player Registration]
+  [Matchmaking Communication]
+  [Match Reporting]
+  [FFXIV API Integration]
+  [Display in Discord Channels]
+}
+
+package "Matchmaking" {
+    [ELO Calculation]
+    [Matchmaking Algorithm]
+}
+
+package "Challonge Integration" {
+  [Challonge API Communication]
+  [Automated Match results]
+}
+
+package "Twitch Stream Integration" {
+  [OBS Communication]
+  [Stream Overlay Display]
+}
+
+database "Database" {
+  [Player Information]
+  [Match Results]
+  [Elo Ratings]
+}
+
+[Discord Bot] --> [Player Registration]
+[Discord Bot] --> [Matchmaking Communication]
+[Discord Bot] --> [Match Reporting]
+[Discord Bot] --> [FFXIV API Integration]
+[Discord Bot] --> [Display in Discord Channels]
+
+[Matchmaking Communication] --> [ELO Calculation]
+[Matchmaking Communication] --> [Matchmaking Algorithm]
+
+[Challonge Integration] --> [Challonge API Communication]
+[Challonge Integration] --> [Automated Match results]
+
+[Twitch Stream Integration] --> [OBS Communication]
+[Twitch Stream Integration] --> [Stream Overlay Display]
+
+[Player Registration] --> [Player Information]
+[Match Reporting] --> [Match Results]
+[ELO Calculation] --> [Elo Ratings]
+
+@enduml

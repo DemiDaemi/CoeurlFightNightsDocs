@@ -1,0 +1,64 @@
+@startuml
+skinparam linetype polyline
+
+class DiscordBot <<Python App>> {
+  +registerPlayer()
+  +matchmake()
+  +reportMatchResult()
+  +linkFFXIVCharacter()
+}
+
+class MatchmakingSystem <<Python App>> {
+  +createMatch()
+  +calculateRating()
+  +assignRating()
+  +matchmakePlayers()
+}
+
+interface ChallongeIntegration {
+  +communicateAPI()
+  +sendMatchResults()
+}
+
+interface TwitchStreamIntegration {
+  +communicateOBS()
+  +displayOverlay()
+}
+
+interface XIVApiIntegration {
+  +communicateAPI()
+  +linkCharacter()
+}
+
+class Player {
+  -name: string
+  -world: string
+  -rating: float
+  -discordAccount: string
+  -ffxivCharacter: string
+}
+
+class Tournament {
+  -players: List<Player>
+  -matches: List<Match>
+}
+
+class Match {
+  -player1: Player
+  -player2: Player
+  -result: tuple
+  -rounds: int
+  -match_winner: Player
+  -timestamp: datetime
+
+}
+
+DiscordBot --> MatchmakingSystem
+DiscordBot --> ChallongeIntegration
+DiscordBot --> TwitchStreamIntegration
+DiscordBot --> XIVApiIntegration
+MatchmakingSystem --> Player
+MatchmakingSystem --> Tournament
+MatchmakingSystem --> Match
+
+@enduml
