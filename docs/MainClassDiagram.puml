@@ -1,5 +1,6 @@
-@startuml
-skinparam linetype polyline
+@startuml MainClassDiagram
+
+title Coeurl Fight Nights Class Diagram Overview
 
 Entity DiscordBot <<Python App>> {
   +registerPlayer()
@@ -54,9 +55,9 @@ class Match {
 }
 
 DiscordBot --> MatchmakingSystem
-DiscordBot --> ChallongeIntegration
-DiscordBot --> TwitchStreamIntegration
-DiscordBot --> XIVApiIntegration
+Tournament --> ChallongeIntegration
+Tournament --> TwitchStreamIntegration
+Player --> XIVApiIntegration
 MatchmakingSystem --> Player
 MatchmakingSystem --> Tournament
 MatchmakingSystem --> Match
